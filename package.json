@@ -1,4 +1,5 @@
 {
+  "homepage": "https://fernanda-freitas.github.io/website/",
   "name": "website",
   "private": true,
   "version": "0.0.0",
@@ -6,9 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.63.6",
     "vite": "^4.3.9"
   }
