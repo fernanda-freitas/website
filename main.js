@@ -8,7 +8,7 @@ const projects = document.querySelector('[data-id="project-section"]')
 const ctaButton = document.querySelector('.btn-cta')
 
 const heroScrollTimeline = new ScrollTimeline({
-  scrollOffsets: [CSS.vh(0), CSS.vh(100)]
+  scrollOffsets: [CSS.vh(0), window.visualViewport.height]
 });
 
 const stackScrollTimeline = new ScrollTimeline({
