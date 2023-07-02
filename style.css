@@ -1,6 +1,7 @@
 :root {
   --white: #FFFFFF;
   --dark-green: #23291B;
+  --light-green: #C5CDBA;
 }
 
 body {
@@ -146,8 +147,8 @@ ul {
 }
   
 .stack-section__title {
-  padding-top: 14rem;
-  font-size: 12rem;
+  padding-top: 0rem;
+  font-size: 14vw;
   color: var(--white);
 }
   
@@ -250,4 +251,58 @@ ul {
     object-fit: cover;
     position: relative;
 
+}
+
+.highlight-projects {
+  position: relative;
+  padding: 0rem;
+  z-index: 10;
+  overflow-x: hidden;
+  background-color: var(--white);
+}
+
+.highlight-projects__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0rem;
+}
+
+.projects__title {
+  font-size: 10vw;
+  margin: 0rem;
+  color: var(--dark-green);
+}
+
+.highlight-projects img{
+  margin: 1rem 2rem 0rem;
+}
+
+.highlight-info {
+  position: relative;
+  z-index: 10;
+  overflow-x: hidden;
+  background-color: var(--white);
+  border-top: 1px solid var(--light-green);
+  border-bottom: 1px solid var(--light-green);
+}
+
+.highlight-info__wrapper {
+  display: flex;
+  align-items: center;
+  padding: .5rem 0rem;
+}
+
+.info__title {
+  display: inline;
+  white-space: nowrap;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 1.5rem 0rem;
+  color: var(--dark-green);
+}
+
+.info__title span{
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--light-green);
 }
