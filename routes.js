@@ -1,3 +1,5 @@
+const pageContent = document.getElementById('page-content');
+
 const fetchHomepage = () => {
   fetch("index.html").then((response) => response.text())
   .then((html) => {
@@ -5,19 +7,14 @@ const fetchHomepage = () => {
   }).catch((error) => console.error(error))
 }
 
-const fetchProject1 = () => {
-  fetch("project.html").then((response) => response.text())
+const fetchConstruir = () => {
+  fetch("pages/construir.html").then((response) => response.text())
   .then((html) => {
-    document.body.innerHTML = html
+    pageContent.innerHTML = html
   }).catch((error) => console.error(error))
 }
 
-// document.querySelector('.teste').addEventListener('click', () => {
-//   history.pushState({}, "", "/project")
-//   fetchProject1()
-// })
-
-// document.querySelector('.teste2').addEventListener('click', () => {
-//   history.pushState({}, "", "/website")
-//   fetchHomepage()
-// })
+document.getElementById('toConstruir').addEventListener('click', () => {
+  history.pushState({}, "", "/construir")
+  fetchConstruir()
+})
