@@ -1,5 +1,5 @@
 import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
-import './style.css'
+import '../style.css'
 import './routes'
 
 const title1 = document.querySelector('[data-id="title1"]');
@@ -76,13 +76,3 @@ window.addEventListener('scroll', () => {
     ctaButton.classList.remove('light')
   }
 })
-
-// document.querySelector('.teste').addEventListener('click', () => {
-//   history.pushState({}, "", "/details")
-//   fetch("project.html").then((response) => response.text())
-//   .then((html) => {
-//     document.body.innerHTML = html
-//   }).catch((error) => {
-//     console.log(error)
-//   })
-// })
