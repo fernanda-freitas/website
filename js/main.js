@@ -10,7 +10,7 @@ const projectsHighlightSmall = document.querySelector('[data-id="highlight-info_
 // const projects = document.querySelector('[data-id="project-section"]')
 const projects = document.querySelector('[data-id="work-section"]')
 const ctaButton = document.querySelector('.btn-cta')
-const logotype = document.querySelector('.logotype')
+// const logotype = document.querySelector('.logotype')
 
 const heroScrollTimeline = new ScrollTimeline({
   scrollOffsets: [CSS.vh(0), CSS.vh(100)]
@@ -74,9 +74,9 @@ projects.addEventListener('wheel', (e) => {
 window.addEventListener('scroll', () => {
   if (window.scrollY > window.visualViewport.height) {
     ctaButton.classList.add('light')
-    logotype.src = "./assets/images/logotype-light.svg"
+    // logotype.src = "./assets/images/logotype-light.svg"
   } else {
     ctaButton.classList.remove('light')
-    logotype.src = "website/assets/images/logotype.svg"
+    // logotype.src = "website/assets/images/logotype.svg"
   }
 })

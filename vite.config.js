@@ -13,6 +13,7 @@ export default defineConfig({
           input: {
             main: resolve(__dirname, 'index.html'),
             artsol: resolve(__dirname, 'artsol.html'),
+            illustrations: resolve(__dirname, 'illustrations.html'),
           },
         },
       },
