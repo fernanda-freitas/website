@@ -7,7 +7,8 @@ const title2 = document.querySelector('[data-id="title2"]')
 const title3 = document.querySelector('[data-id="title3"]')
 const projectsHighlight = document.querySelector('[data-id="highlight-projects__items"]')
 const projectsHighlightSmall = document.querySelector('[data-id="highlight-info__items-small"]')
-const projects = document.querySelector('[data-id="project-section"]')
+// const projects = document.querySelector('[data-id="project-section"]')
+const projects = document.querySelector('[data-id="work-section"]')
 const ctaButton = document.querySelector('.btn-cta')
 
 const heroScrollTimeline = new ScrollTimeline({

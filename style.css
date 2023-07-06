@@ -308,3 +308,49 @@ ul {
   font-weight: 400;
   color: var(--light-green);
 }
+
+/* New Work section */
+
+.work-section {
+  background-color: var(--white);
+  z-index: 40;
+  position: relative;
+  inset: 0;
+  display: block;
+  overflow-x: hidden;
+}
+
+.work-section__work {
+  height: auto;
+  padding-top: 3rem;
+  border-bottom: 1px solid var(--light-green);
+}
+
+.work-section__work__project {
+  padding-left: 3.5rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.work-section__work__title {
+  color: var(--dark-green);
+}
+
+.work-section__work__list--item {
+  color: var(--dark-green);
+}
+
+.work-section__work__link {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  text-decoration: none;
+}
+
+.work-section__work__link__img {
+  width: 50vw;
+  height: 100%;
+  object-fit: cover;
+}
