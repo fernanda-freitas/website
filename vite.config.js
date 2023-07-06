@@ -12,7 +12,7 @@ export default defineConfig({
         rollupOptions: {
           input: {
             main: resolve(__dirname, 'index.html'),
-            construir: resolve(__dirname, 'construir.html'),
+            artsol: resolve(__dirname, 'artsol.html'),
           },
         },
       },

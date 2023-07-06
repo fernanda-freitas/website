@@ -150,7 +150,7 @@ ul {
   
 .stack-section__title {
   padding-top: 0rem;
-  font-size: 14vw;
+  font-size: 10vw;
   color: var(--white);
 }
   
@@ -360,4 +360,33 @@ ul {
   width: 50vw;
   height: 100%;
   object-fit: cover;
+}
+
+/* Internal Work pages */
+
+.single-work-container {
+  position: relative;
+  max-width: 86vw;
+  margin: auto;
+}
+
+.single-work-section {
+  height: 400px;
+  margin-top: 12rem;
+  max-width: 760px;
+}
+
+.single-work-section__title {
+    font-size: 3rem;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+}
+
+.single-work-section__text {
+  font-size: 32px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  color: var(--dark-green);
 }
