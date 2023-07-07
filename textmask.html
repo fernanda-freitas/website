@@ -14,11 +14,16 @@
             font-family: 'Barlow Condensed';
         }
 
+        .navigation {
+            display: flex;
+        }
+
         .word-container {
             cursor: pointer;
             overflow: hidden;
             height: 20px;
             display: inline-block;
+            margin-right: 2rem;
         }
 
         .word, .word-bottom {
@@ -68,28 +73,31 @@
 </head>
 <body>
 
-    <div class="word-container"></div>
+    <div class="navigation">
+        <div class="linkedin"></div>
+        <div class="instagram"></div>
+    </div>
 
     <script>
-        const wordMask = function(word) {
-            const container = document.querySelector('.word-container')
+        const wordMask = function(className, word) {
             const arr = word.split('')
-            
             const wrappedWord = arr.map((letter) => {
                 return `<span>${letter}</span>`
             })
-
-            container.insertAdjacentHTML('beforeend', '<div class="word"></div>');
-            container.insertAdjacentHTML('beforeend', '<div class="word-bottom"></div>');
-
-            container.querySelector('.word').innerHTML = wrappedWord.join('')
-            container.querySelector('.word-bottom').innerHTML = wrappedWord.join('')
-
+    
+            const container = document.querySelector(`.${className}`)
+            container.insertAdjacentHTML('beforeend', '<div class="word-container"></div>')
+            const wordContainer = container.querySelector('.word-container')
+    
+            wordContainer.insertAdjacentHTML('beforeend', '<div class="word"></div>');
+            wordContainer.insertAdjacentHTML('beforeend', '<div class="word-bottom"></div>');
+    
+            wordContainer.querySelector('.word').innerHTML = wrappedWord.join('')
+            wordContainer.querySelector('.word-bottom').innerHTML = wrappedWord.join('')
         }
-
-        wordMask('work')
-        wordMask('instagram')
-
+    
+        wordMask('linkedin', 'linkedin')
+        wordMask('instagram', 'instagram')
     </script>
 </body>
 </html>
