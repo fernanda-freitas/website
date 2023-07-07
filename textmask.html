@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(24, 24, 24);
+            color: white;
+            font-family: 'Barlow Condensed';
+        }
+
+        .word-container {
+            cursor: pointer;
+            overflow: hidden;
+            height: 20px;
+            display: inline-block;
+        }
+
+        .word, .word-bottom {
+            position: relative;
+        }
+
+        .word-bottom {
+            top: 0px;
+        }
+        
+        span {
+            position: relative;
+            font-size: 1rem;
+            letter-spacing: 5px;
+        }
+        
+        .word-container:hover :nth-child(1) {
+            animation: moveUp .5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+        .word-container:hover :nth-child(2) {
+            animation: moveUp .5s ease-in-out;
+            animation-delay: .05s;
+            animation-fill-mode: forwards;
+        }
+        .word-container:hover :nth-child(3) {
+            animation: moveUp .5s ease-in-out;
+            animation-delay: .15s;
+            animation-fill-mode: forwards;
+        }
+        .word-container:hover :nth-child(4) {
+            animation: moveUp .5s ease-in-out;
+            animation-delay: .20s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes moveUp {
+            from {
+                bottom: 0px;
+            }
+            to {
+                bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="word-container"></div>
+
+    <script>
+        const wordMask = function(word) {
+            const container = document.querySelector('.word-container')
+            const arr = word.split('')
+            
+            const wrappedWord = arr.map((letter) => {
+                return `<span>${letter}</span>`
+            })
+
+            container.insertAdjacentHTML('beforeend', '<div class="word"></div>');
+            container.insertAdjacentHTML('beforeend', '<div class="word-bottom"></div>');
+
+            container.querySelector('.word').innerHTML = wrappedWord.join('')
+            container.querySelector('.word-bottom').innerHTML = wrappedWord.join('')
+
+        }
+
+        wordMask('work')
+        wordMask('instagram')
+
+    </script>
+</body>
+</html>

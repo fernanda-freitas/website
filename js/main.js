@@ -58,8 +58,7 @@ projectsHighlightSmall.animate(
   { duration: 1, timeline: projectsHighlightTimeline, easing: 'ease-in-out' }
 )
 
-// Chante in prod
-if (location.pathname === "/website") {
+if (location.pathname === "/website/") {
   window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY
   
