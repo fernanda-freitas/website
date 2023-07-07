@@ -7,10 +7,12 @@ const title2 = document.querySelector('[data-id="title2"]')
 const title3 = document.querySelector('[data-id="title3"]')
 const projectsHighlight = document.querySelector('[data-id="highlight-projects__items"]')
 const projectsHighlightSmall = document.querySelector('[data-id="highlight-info__items-small"]')
-// const projects = document.querySelector('[data-id="project-section"]')
 const projects = document.querySelector('[data-id="work-section"]')
 const ctaButton = document.querySelector('.btn-cta')
-// const logotype = document.querySelector('.logotype')
+const logotypeDark = document.querySelector('.logotype')
+const logotypeLight = document.querySelector('.logotype-light')
+const stackSection = document.querySelector('.stack-section')
+const stackSectionArea = stackSection.getBoundingClientRect()
 
 const heroScrollTimeline = new ScrollTimeline({
   scrollOffsets: [CSS.vh(0), CSS.vh(100)]
@@ -56,27 +58,29 @@ projectsHighlightSmall.animate(
   { duration: 1, timeline: projectsHighlightTimeline, easing: 'ease-in-out' }
 )
 
-projects.addEventListener('wheel', (e) => {
-  const scrollWidth = projects.scrollWidth
-  const scrollClientWidth = projects.clientWidth
-  const scrollLeft = projects.scrollLeft
+// Chante in prod
+if (location.pathname === "/website") {
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY
   
-  const isAtStart = scrollLeft === 0
-  const isAtEnd = scrollLeft + scrollClientWidth === scrollWidth
-  
-  if ((e.deltaY < 0 && isAtStart) || (e.deltaY > 0 && isAtEnd)) {
-    return;
-  }
-  e.preventDefault()
-  projects.scrollLeft += e.deltaY
-})
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > window.visualViewport.height) {
-    ctaButton.classList.add('light')
-    // logotype.src = "./assets/images/logotype-light.svg"
-  } else {
-    ctaButton.classList.remove('light')
-    // logotype.src = "website/assets/images/logotype.svg"
-  }
-})
+    if (scrollPosition < stackSectionArea.top) {
+      logotypeDark.classList.add("show")
+      logotypeDark.classList.remove("hide")
+      logotypeLight.classList.add("hide")
+      logotypeLight.classList.remove("show")
+      ctaButton.classList.remove('light')
+    } else if (scrollPosition >= stackSectionArea.top && scrollPosition <= stackSectionArea.bottom) {
+      logotypeDark.classList.add("hide")
+      logotypeDark.classList.remove("show")
+      logotypeLight.classList.add("show")
+      logotypeLight.classList.remove("hide")
+      ctaButton.classList.add('light')
+    } else if (scrollPosition > stackSectionArea.bottom) {
+      logotypeDark.classList.add("show")
+      logotypeDark.classList.remove("hide")
+      logotypeLight.classList.add("hide")
+      logotypeLight.classList.remove("show")
+      ctaButton.classList.remove('light')
+    }
+  })
+}

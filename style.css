@@ -35,6 +35,18 @@ ul {
   margin: auto;
 }
 
+.logotype, .logotype-light {
+  position: absolute;
+}
+
+.show {
+  display: block
+}
+
+.hide {
+  display: none;
+}
+
 .btn-cta {
   display: flex;
   align-items: center;
