@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(24, 24, 24);
+            color: white;
+            font-family: 'Barlow Condensed';
+        }
+
+        .navigation {
+            display: flex;
+        }
+
+        .word-container {
+            cursor: pointer;
+            overflow: hidden;
+            height: 20px;
+            display: inline-block;
+            margin-right: 2rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .word, .word-bottom {
+            position: relative;
+        }
+
+        .word-bottom {
+            top: 0px;
+        }
+        
+        span {
+            position: relative;
+            font-size: 1rem;
+            letter-spacing: 5px;
+        }
+        
+        @keyframes moveUp {
+            from {
+                bottom: 0px;
+            }
+            to {
+                bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navigation">
+        <div class="linkedin"></div>
+        <div class="instagram"></div>
+    </div>
+
+    <script>
+        const wordMask = function(className, word, path) {
+            const arr = word.split('')
+            const wrappedWord = arr.map((letter) => {
+                return `<span>${letter}</span>`
+            })
+
+            const container = document.querySelector(`.${className}`)
+            container.insertAdjacentHTML('beforeend', `<a href="${path}" target="_blank" class="word-container"></a>`)
+            const wordContainer = container.querySelector('.word-container')
+    
+            wordContainer.insertAdjacentHTML('beforeend', '<div class="word"></div>');
+            wordContainer.insertAdjacentHTML('beforeend', '<div class="word-bottom"></div>');
+    
+            wordContainer.querySelector('.word').innerHTML = wrappedWord.join('')
+            wordContainer.querySelector('.word-bottom').innerHTML = wrappedWord.join('')
+
+            const animation = function() {
+                const allSpans = wordContainer.querySelectorAll('span')
+                for (i = 0; i < allSpans.length; i++) {
+                    allSpans[i].style.animation = `moveUp .5s ease-in-out forwards`
+                    allSpans[i].style.animationDelay = `${i * .05}s`
+                }
+            }
+
+            const resetAnimation = function() {
+            const allSpans = wordContainer.querySelectorAll('span');
+            for (let i = 0; i < allSpans.length; i++) {
+            allSpans[i].style.animation = '';
+            }
+        };
+
+        container.addEventListener('mouseover', animation);
+        container.addEventListener('mouseleave', resetAnimation);
+        }
+    
+        wordMask('linkedin', 'linkedin', 'https://www.linkedin.com/in/fernanda-freitas-martinez-8b9a792a/')
+        wordMask('instagram', 'instagram', 'https://www.instagram.com/fernanda_freitas_martinez/')
+    </script>
+</body>
+</html>
