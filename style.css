@@ -139,14 +139,30 @@ ul {
 }
 
 .hero-section__title {
-    display: grid;
-    font-size: 18vw;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--dark-green);
-    margin-bottom: 0rem;
-    margin-top: 0rem;
-    line-height: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: auto;
+  }
+  
+.hero-section__title__span--top {
+  font-size: 16vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--dark-green);
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  line-height: .8;
+}
+
+.hero-section__title__span--bottom {
+  font-size: 12.5vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--dark-green);
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  line-height: 1;
 }
 
 .stack-section {

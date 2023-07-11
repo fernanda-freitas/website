@@ -7,7 +7,6 @@ const title2 = document.querySelector('[data-id="title2"]')
 const title3 = document.querySelector('[data-id="title3"]')
 const projectsHighlight = document.querySelector('[data-id="highlight-projects__items"]')
 const projectsHighlightSmall = document.querySelector('[data-id="highlight-info__items-small"]')
-const projects = document.querySelector('[data-id="work-section"]')
 const ctaButton = document.querySelector('.btn-cta')
 const logotypeDark = document.querySelector('.logotype')
 const logotypeLight = document.querySelector('.logotype-light')
@@ -15,7 +14,9 @@ const stackSection = document.querySelector('.stack-section')
 const stackSectionArea = stackSection.getBoundingClientRect()
 
 const heroScrollTimeline = new ScrollTimeline({
-  scrollOffsets: [CSS.vh(0), CSS.vh(100)]
+  scrollOffsets: [
+    {target: [title1, title2], edge: "start", threshold: "100"}
+  ]
 });
 
 const stackScrollTimeline = new ScrollTimeline({
@@ -27,29 +28,30 @@ const stackScrollTimeline = new ScrollTimeline({
 
 const projectsHighlightTimeline = new ScrollTimeline({
   scrollOffsets: [
-    { target: projectsHighlight, edge: "end", threshold: "0" },
-    { target: projectsHighlight, edge: "start", threshold: "0" }
+    { target: projectsHighlight, edge: "start", threshold: "0" },
+    { target: projectsHighlight, edge: "start", threshold: "100" }
   ]
 });
 
 
 title1.animate(
-  { transform: ['translateX(0px)', 'translateX(1200px)'] },
+  { transform: ['translateX(0rem)', 'translateX(-1000rem)'] },
   { duration: 1, timeline: heroScrollTimeline, easing: 'ease-in-out' }
 );
 
 title2.animate(
-  { transform: ['translateX(0px)', 'translateX(-2000px)'] },
+  { transform: ['translateX(0rem)', 'translateX(1000rem)'] },
   { duration: 1, timeline: heroScrollTimeline, easing: 'ease-in-out' }
 );
 
 title3.animate(
-  { transform: ['translateY(80px)', 'translateY(-80px)'] },
+  { transform: ['translateY(12rem)', 'translateY(-100rem)'] },
   { duration: 1, timeline: stackScrollTimeline, easing: 'ease-in-out' }
 );
 
 projectsHighlight.animate(
-  { transform: ['translate3d(900px, 0px, 0px)', 'translate3d(-157.253px, 0px, 0px)'] },
+  // { transform: ['translate3d(900px, 0px, 0px)', 'translate3d(-157.253px, 0px, 0px)'] },
+  { transform: ['translateX(0rem)', 'translateX(-40rem)'] },
   { duration: 1, timeline: projectsHighlightTimeline, easing: 'ease-in-out' }
 )
 
@@ -83,3 +85,15 @@ if (location.pathname === "/website/") {
     }
   })
 }
+
+const body = document.body
+const speed = 0.4
+let offset = 2
+
+function smoothScroll() {
+  offset += (window.getBoundingClientRect - offset) * speed
+  var scroll = `translateY(-${offset}px) translateZ(0)`
+  body.style.transform = scroll
+  requestAnimationFrame(smoothScroll)
+}
+smoothScroll()
